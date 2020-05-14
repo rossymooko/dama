@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style1.css" />
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/vendor/owl-slider.css" />
+    <link rel="stylesheet" type="text/css" href="assets/vendor/settings.css" />
+    <link rel="stylesheet" type="text/css" href="assets/vendor/animate.css" />   
+<!-- <script src="assets/js/account.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script type="text/javascript" src="assets/js/checkout.js"></script>
+    <script src="https://kit.fontawesome.com/41240a8bde.js" crossorigin="anonymous"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyCM4ajE3a74xW3EC4hxSkYPQAEFHCRZJlI",
+            authDomain: "group6-ce9e3.firebaseapp.com",
+            databaseURL: "https://group6-ce9e3.firebaseio.com",
+            projectId: "group6-ce9e3",
+            storageBucket: "group6-ce9e3.appspot.com",
+            messagingSenderId: "322815362286",
+            appId: "1:322815362286:web:9f9fed29aaa13c68d99fff"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
+
+    </script>
+    <title>Home</title>
+</head>
+
+<body>
+
+    <!-- Log in -->
+    <header id="header" class="header-v3">
+        <div id="topbar">
+            <div class="container">
+                <div class="topbar-left">
+                    <a class="facebook" href="#" title="facebook"><i class="zmdi zmdi-facebook"></i></a>
+                    <a class="twitter" href="#" title="twitter"><i class="zmdi zmdi-twitter"></i></a>
+                    <a class="instagram" href="#" title="instagram"><i class="zmdi zmdi-instagram"></i></a>
+                    <a class="google" href="#" title="google"><i class="zmdi zmdi-google-glass"></i></a>
+
+                    <!-- End cart -->
+                </div>
+                <!-- End topBar-left -->
+                <div class="topbar-right">
+                    <div class="wrap-sign-in cart dropdown">
+                        <a class="sign-in" href="#" title="user"><i class="zmdi zmdi-account"></i>My account</a>
+                        <div class="register-list cart-list dropdown-menu ">
+                            <h3>My account</h3>
+                            <!-- <form class="form-horizontal" method="POST"> -->
+                            <form class="form-horizontal">
+                                <div class="acc-name">
+                                    <input class="form-control" type="text" placeholder="Account name" id="inputacname">
+                                </div>
+                                <div class="acc-pass">
+                                    <input class="form-control" type="password" placeholder="Password" id="inputpass">
+                                </div>
+                                <!-- <div class="remember">
+                                        <input type="checkbox" id="me" name="nar" />
+                                        <label for="me">remember me</label>
+                                        <a class="help" href="#" title="help ?">help?</a>
+                                    </div> -->
+                                <!-- <button type="submit" class="link-button" id ="quickstart-sign-in">Sign In</button> -->
+                            </form>
+                            <button type="submit" class="link-button" onclick="signIn()">Sign In</button>
+                            <button type="submit" class="link-button" onclick="signOut()">Sign Out</button>
+                            <button type="submit" class="link-button" onclick="updatePassword()">Update
+                                Password</button>
+                            <button type="submit" class="link-button" onclick="deleteUser()">Delete Account</button>
+
+
+                            <h3>Or register</h3>
+                            <form class="form-horizontal">
+                                <input type="text" placeholder="Your Email" id="inputmail" class="form-control">
+                                <input type="password" placeholder="Password" id="inputpass1" class="form-control">
+                                <!-- <button type="submit" class="link-button" onclick="handleSignUp()">Sign Up</button> -->
+                                <!-- <button type="submit" class="link-button" disabled id="quickstart-verify-email">Verify email</button> -->
+                            </form>
+                            <button type="submit" class="link-button" onclick="signUp()">Sign Up</button>
+
+
+                            <h4>or register to</h4>
+                            <div class="social">
+                                <a class="facebook" href="#" title="facebook"><i class="zmdi zmdi-facebook"></i></a>
+                                <a class="twitter" href="#" title="twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                <a class="instagram" href="#" title="instagram"><i class="zmdi zmdi-instagram"></i></a>
+                                <a class="google" href="#" title="google"><i class="zmdi zmdi-google-glass"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End topbar-right -->
+            </div>
+            <!-- End container -->
+        </div>
+        <!-- End Top Bar -->
+
+        <div class="header-top">
+            <div class="container">
+                <div class="inner-container">
+                    <p class="icon-menu-mobile"><span class="icon-bar"></span></p>
+                    <div class="logo"><a href="#" title="Dana-Logo"><img src="assets/images/Dana-menu-logo.png"
+                                alt="Dana-Logo"></a></div>
+                    <div class="menu-top">
+                        <ul class="nav-top">
+                            <li class="level1"><a href="home_v1.html" title="Home">Home</a>
+                            </li>
+                            <li class="level1"><a href="face.html" title="Shop">Shop</a>
+                            </li>
+                            <li class="level1"><a href="contact.html" title="Contact">Contact</a>
+                            </li>
+                            <li class="level1"><a href="about.html" title="About Us">About Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search">
+                        <div class="search-form">
+                            <form action="#" method="get">
+                                <div class="search-select">
+                                    <i class="zmdi zmdi-chevron-down"></i>
+                                    <select name="orderby" class="category-search">
+                                        <option value="">Select Category</option>
+                                        <option value="face">face</option>
+                                        <option value="Lip">Lip</option>
+                                        <option value="Cheek">Cheek</option>
+                                        <option value="Brushes&Applicators">Brushes&Applicators</option>
+                                    </select>
+                                </div>
+                                <!-- End search Select -->
+                                <input type="text" autocomplete="off" placeholder="search Keywork " value=""
+                                    class="ajax_autosuggest_input ac_input" name="s">
+                                <button type="submit" class="icon-search">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- End search -->
+                </div>
+                <!-- End inner container -->
+            </div>
+            <!-- End container -->
+        </div>
+        <!-- End header-top -->
+        <nav class="menu-mobile">
+            <ul class="nav">
+                <li class="level1"><a href="product-detail.html" title="face">Face</a></li>
+                <li class="level1">
+                    <a href="#" title="eye">eye</a>
+                </li>
+                <li class="level1"><a href="lip.html" title="Lip ">Lip </a></li>
+                <li class="level1"><a href="cheek.html" title="Cheek "> Cheek</a></li>
+                <li class="level1"><a href="brushes&applicators.html"
+                        title="Brushes&Applicators">Brushes&Applicators</a></li>
+            </ul>
+        </nav>
+        <!-- End menu  mobile -->
+        <nav class="mega-menu">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- <ul class="nav navbar-nav" id="navbar">
+                    <li class="level1"><a href="face.html" title="face">face</a></li>
+                    <li class="level1"><a href="Eye.html" title="Eye ">Eye </a></li>
+                    <li class="level1"><a href="lip.html" title="Lip ">Lip </a></li>
+                    <li class="level1"><a href="cheek.html">Cheek</a></li>
+                    <li class="level1"><a href="brushes&applicators.html" title="Brushes&Applicators">Brushes&Applicators</a></li>
+                  </ul> -->
+                <!--<div class="menu-icon-right">
+                    <div class="cart dropdown">
+                    <a class="icon-cart" href="#" title="Cart">
+                        <i class="zmdi zmdi-shopping-cart-plus"></i>
+                        <span class="cart-count">2</span>
+                    </a>
+                    <div class="cart-list dropdown-menu">
+                        <ul class="list">
+                            <li>
+                                <a href="#" title="" class="cart-product-image"><img src="assets/images/products/1.jpg" alt="Product"></a>
+                                <div class="text">
+                                    <p class="product-name">Sepora #2145</p>
+                                    <p class="product-price">1 x $69.90</p>
+                                </div>
+                                <a href="#" class="delete-item">
+                                    <i class="zmdi zmdi-close-circle-o"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="" class="cart-product-image"><img src="assets/images/products/1.jpg" alt="Product"></a>
+                                <div class="text">
+                                    <p class="product-name">Sepora #2145</p>
+                                    <p class="product-price">1 x $69.90</p>
+                                </div>
+                                <a href="#" class="delete-item">
+                                    <i class="zmdi zmdi-close-circle-o"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="total"><span>Total cost</span> $1121.98</p>
+                        <a class="checkout bg-black" href="checkout.html" title="check out">Check out</a>
+                    </div>
+                </div>
+                  </div>   -->
+            </div>
+            <!-- End container -->
+        </nav>
+        <!-- End mega menu -->
+    </header>
+
+    <div class="slide-show-ver1">
+        <div class="container">
+            <div class="tp-banner-container">
+                <div class="tp-banner tp-banner-ver1">
+                    <ul>
+                        <!-- SLIDE  -->
+                        <li data-transition="notransition" data-slotamount="6" data-masterspeed="1000">
+                            <!-- MAIN IMAGE -->
+                            <img src="assets/images/bg-slide-show.png" alt="bg-slide-show.png" data-bgfit="cover"
+                                data-bgposition="left top" data-bgrepeat="no-repeat">
+                            <!-- LAYER NR. 3 -->
+
+                            <div class="tp-caption large_bold_orange weight-600 capitalize color-white skewfromleft customout size-60 weight-800 uppercase"
+                                data-x="155" data-y="260"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800" data-start="1600" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 9">Skincare
+                            </div>
+                            <!-- LAYER NR. 4 -->
+
+                            <!-- LAYER NR. 5 -->
+                            <div class="tp-caption large_bold_orange size-18 color-white skewfromright customout transform-none"
+                                data-x="155" data-y="370"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800" data-start="1800" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 7">Lorem Ipsum is
+                                simply dummy text of the printing and <br> blaqqqqqqqq <span class="text-span">Sale up
+                                    to 40%</span> text ever<br> since the 1500s
+                            </div>
+
+
+                            <!-- LAYER NR. 8s -->
+                            <div class="tp-caption skewfromleft customout link-1 link-2 height-50" data-x="155"
+                                data-y="500"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="1000" data-start="1500" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 8"><a
+                                    href="face.html" title="Follow">See More</a>
+                            </div>
+                            <!-- LAYER NR. 8s -->
+                            <div class="tp-caption skewfromleft customout link-1 link-2 icons height-50" data-x="270"
+                                data-y="500"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="1000" data-start="1500" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 8"><a href="#"
+                                    title="link"></a>
+                            </div>
+
+                            <!-- LAYER NR. 9 -->
+                            <div class="tp-caption skewfromright customout" data-x="590" data-y="130"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="1000" data-start="1500" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 1"><img
+                                    src="assets/images/slideshow1.png" alt="skincare">
+                            </div>
+                        </li>
+                        <!-- SLIDER -->
+                        <!-- SLIDE  -->
+                        <li data-transition="notransition" data-slotamount="6" data-masterspeed="1000">
+                            <img src="assets/images/bg-slide-show.png" alt="bg-slide-show.png" data-bgfit="cover"
+                                data-bgposition="left top" data-bgrepeat="no-repeat">
+
+                            <div class="tp-caption large_bold_orange weight-600 capitalize color-white skewfromleft customout size-60 weight-800 uppercase"
+                                data-x="155" data-y="260"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800" data-start="1600" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 9">Makeup
+                            </div>
+
+                            <div class="tp-caption large_bold_orange size-18 color-white skewfromright customout transform-none"
+                                data-x="155" data-y="370"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800" data-start="1800" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 7">Lorem Ipsum is
+                                simply dummy text of the printing and <br> blaqq <span class="text-span">Sale up to
+                                    40%</span> text ever<br> since the 1500s
+                            </div>
+
+
+                            <div class="tp-caption skewfromleft customout link-1 link-2 height-50" data-x="155"
+                                data-y="500"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="1000" data-start="1500" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 8"><a
+                                    href="face.html" title="Follow">See more</a>
+                            </div>
+
+                            <div class="tp-caption skewfromleft customout link-1 link-2 icons height-50" data-x="270"
+                                data-y="500"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="1000" data-start="1500" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 8"><a href="#"
+                                    title="link"></a>
+                            </div>
+
+                            <div class="tp-caption skewfromright customout" data-x="590" data-y="130"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="1000" data-start="1500" data-easing="Power4.easeOut" data-endspeed="300"
+                                data-endeasing="Power1.easeIn" data-captionhidden="on" style="z-index: 1"><img
+                                    src="assets/images/slideshow1.png" alt="makeup">
+                            </div>
+                        </li>
+                        <!-- SLIDER -->
+                    </ul>
+                    <div class="tp-bannertimer"></div>
+                </div>
+                <!-- End container -->
+            </div>
+            <!-- End tp-banner -->
+            <div class="social">
+                <a title="facebook" href="#" class="facebook"><i class="zmdi zmdi-facebook"></i></a>
+                <a title="twitter" href="#" class="twitter"><i class="zmdi zmdi-twitter"></i></a>
+                <a title="instagram" href="#" class="instagram"><i class="zmdi zmdi-instagram"></i></a>
+                <a title="google" href="#" class="google"><i class="zmdi zmdi-google-glass"></i></a>
+                <!-- End cart -->
+            </div>
+        </div>
+    </div>
+    <!-- End Slide-Show -->
+
+
+
+    <!-- End MainContent -->
+    <div class="bottom-product-footer space-padding-tb-50">
+        <div class="container">
+            <!-- Product Column 1 -->
+            <div class="col-md-4">
+                <div class="title-text size-25">
+                    <h3><span>N</span>ew product</h3>
+                </div>
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Lip01.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/lip01-1.jpg"
+                            title="CHARLOTTE TILBURY Lipstick" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="lip.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Lipstick</a>
+                        <a class="product-name" href="Product-Details-Lip01.html" target="_blank"
+                            rel="noopener noreferrer">CHARLOTTE TILBURY Lipstick</a>
+                        <a class="product-price"><span>Price: </span>฿1490</a>
+                        <div class="action">
+                            <a onclick="addToCart('0')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 1/1 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Lip02.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/lip02-1.jpg"
+                            title="PAT MCGRATH LABS LUST: Lip Gloss" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="lip.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Lipstick</a>
+                        <a class="product-name" href="Product-Details-Lip02.html" target="_blank"
+                            rel="noopener noreferrer">PAT MCGRATH LABS LUST: Lip Gloss</a>
+                        <a class="product-price"><span>Price: </span>฿1100</a>
+                        <div class="action">
+                            <a onclick="addToCart('1')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 1/2-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Brush02.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/b02-1.jpg"
+                            title="HOURGLASS: Veil™ Powder Brush" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="brushes&applicators.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Brush</a>
+                        <a class="product-name" href="Product-Details-Brush02.html" target="_blank"
+                            rel="noopener noreferrer">HOURGLASS Veil™ Powder Brush</a>
+                        <p class="product-price"><span>Price: </span>฿1900</p>
+                        <div class="action">
+                            <a onclick="addToCart('2')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 1/3-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Cheek01.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/c01-1.jpg"
+                            title="MARC JACOBS BEAUTY: O!Mega Bronzer Coconut Perfect Tank" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="cheek.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Cheek</a>
+                        <a class="product-name" href="Product-Details-Cheek01.html" target="_blank"
+                            rel="noopener noreferrer">MARC JACOBS BEAUTY: O!Mega Bronzer Coconut Perfect Tank</a>
+                        <p class="product-price"><span>Price: </span>฿1790</p>
+                        <div class="action">
+                            <a onclick="addToCart('3')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 1/4-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Eye04.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/e04-1.jpg"
+                            title="PAT MCGRATH LABS Mothership V Eyeshadow Palette - Bronze Seduction" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="Eye.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Eye</a>
+                        <a class="product-name" href="Product-Details-Eye04.html" target="_blank"
+                            rel="noopener noreferrer" ">PAT MCGRATH LABS Mothership V Eyeshadow Palette - Bronze Seduction</a>
+                            <p class=" product-price"><span>Price: </span>฿4750</p>
+                            <div class="action">
+                                <a onclick="addToCart('4')" title="add-to-cart"><i
+                                        class="zmdi zmdi-shopping-cart-plus"></i></a>
+                            </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 1/5-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Brush03.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/b03-1.jpg"
+                            title="FENTY BEAUTY BY RIHANNA Dry Brush Cleaning Sponge" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="brushes&applicators.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Brush</a>
+                        <a class="product-name" href="Product-Details-Brush03.html" target="_blank"
+                            rel="noopener noreferrer">FENTY BEAUTY BY RIHANNA Dry Brush Cleaning Sponge</a>
+                        <p class="product-price"><span>Price: </span>฿670</p>
+                        <div class="action">
+                            <a onclick="addToCart('5')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 1/6-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Cheek02.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/c02-1.jpg"
+                            title="BECCA COSMETICS Sunlit Bronzer" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="cheek.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Cheek</a>
+                        <a class="product-name" href="Product-Details-Cheek02.html" target="_blank"
+                            rel="noopener noreferrer">BECCA COSMETICS Sunlit Bronzer</a>
+                        <p class="product-price"><span>Price: </span>฿1650</p>
+                        <div class="action">
+                            <a onclick="addToCart('6')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 1/7-->
+            </div>
+            <!-- End col-md-4 -->
+
+            <!-- Product Column 2 -->
+            <div class="col-md-4">
+                <div class="title-text size-25">
+                    <h3><span>T</span>op Review</h3>
+                </div>
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Lip05.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/lip05-1.jpg"
+                            title="TOM FORD Lip Color Lipstick" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="lip.html" title="category" target="_blank"
+                            rel="noopener noreferrer">Lipstick</a>
+                        <a class="product-name" href="Product-Details-Lip05.html" target="_blank"
+                            rel="noopener noreferrer">TOM FORD Lip Color Lipstick</a>
+                        <p class="product-price"><span>Price: </span>฿2000</p>
+                        <p class="star">
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star-o"></i></a>
+                        </p>
+                        <div class="action">
+                            <a onclick="addToCart('7')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 2/1 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Brush01.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/b01-1.jpg" title="BEAUTYBLENDER"
+                            alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="brushes&applicators.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Brush</a>
+                        <a class="product-name" href="Product-Details-Brush01.html" target="_blank"
+                            rel="noopener noreferrer">BEAUTYBLENDER
+                            beautyblender® pro</a>
+                        <p class="product-price"><span>Price: </span>฿825</p>
+                        <p class="star">
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star-o"></i></a>
+                        </p>
+                        <div class="action">
+                            <a onclick="addToCart('8')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 2/2 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Eye01.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/e01-1.jpg"
+                            title="TOM FORD: Eye Color Quad Eyeshadow Palette" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="Eye.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Eye</a>
+                        <a class="product-name" href="Product-Details-Eye01.html" target="_blank"
+                            rel="noopener noreferrer">TOM FORD
+                            Eye Color Quad Eyeshadow Palette</a>
+                        <p class="product-price"><span>Price: </span>฿2880</p>
+                        <p class="star">
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star-o"></i></a>
+                        </p>
+                        <div class="action">
+                            <a onclick="addToCart('9')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end product item 2/3-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Eye02.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/e02-1.jpg"
+                            title="TOO FACED Better Than Sex Mascara" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="Eye.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Eye</a>
+                        <a class="product-name" href="Product-Details-Eye02.html" target="_blank"
+                            rel="noopener noreferrer">TOO FACED
+                            Better Than Sex Mascara</a>
+                        <p class="product-price"><span>Price: </span>฿850</p>
+                        <p class="star">
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                        </p>
+                        <div class="action">
+                            <a onclick="addToCart('10')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end product item 2/4-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Brush04.html" title="" target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="primary_image" src="assets/images/products/b04-1.jpg"
+                            title="SHISEIDO Eyelash Curler" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="brushes&applicators.html" title="category">Brush</a>
+                        <a class="product-name" href="Product-Details-Brush04.html" target="_blank"
+                            rel="noopener noreferrer">SHISEIDO Eyelash Curler</a>
+                        <p class="product-price"><span>Price: </span>฿900</p>
+                        <p class="star">
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                        </p>
+                        <div class="action">
+                            <a onclick="addToCart('11')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end product item 2/5 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Face04.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/f04-1.jpg"
+                            title="LANCÔME DUAL FINISH – Multi-tasking Longwear Powder Foundation" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="face.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Face</a>
+                        <a class="product-name" href="Product-Details-Face04.html" target="_blank"
+                            rel="noopener noreferrer">LANCÔME DUAL FINISH – Multi-tasking Longwear Powder Foundation</a>
+                        <p class="product-price"><span>Price: </span>฿1700</p>
+                        <p class="star">
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star-o"></i></a>
+                        </p>
+                        <div class="action">
+                            <a onclick="addToCart('12')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 2/6 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Cheek03.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/c03-1.jpg"
+                            title="TARTE Park Ave Princess™ Waterproof Face & Body Bronzer" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="cheek.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Cheek</a>
+                        <a class="product-name" href="Product-Details-Cheek03.html" target="_blank"
+                            rel="noopener noreferrer">TARTE Park Ave Princess™ Waterproof Face & Body Bronzer</a>
+                        <p class="product-price"><span>Price: </span>฿1229</p>
+                        <p class="star">
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                            <a href="#" title="star"><i class="fa fa-star"></i></a>
+                        </p>
+                        <div class="action">
+                            <a onclick="addToCart('13')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 2/7 -->
+            </div>
+            <!-- End col-md-4 -->
+
+            <!-- Product Column 3 -->
+            <div class="col-md-4">
+                <div class="title-text size-25">
+                    <h3><span>P</span>opular</h3>
+                </div>
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Face02.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/f02-1.jpg"
+                            title="GIVENCHY Prisme Libre Loose Powder" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="face.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Face</a>
+                        <a class="product-name" href="Product-Details-Face02.html" target="_blank"
+                            rel="noopener noreferrer">GIVENCHY Prisme Libre Loose Powder</a>
+                        <p class="product-price"><span>Price: </span>฿2620</p>
+                        <div class="action">
+                            <a onclick="addToCart('14')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end product item 3/1-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Face03.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/f03-1.jpg"
+                            title="HOURGLASS Ambient® Lighting Palette" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="face.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Face</a>
+                        <a class="product-name" href="Product-Details-Face03.html" target="_blank"
+                            rel="noopener noreferrer">HOURGLASS Ambient® Lighting Palette</a>
+                        <p class="product-price"><span>Price: </span>฿2650</p>
+                        <div class="action">
+                            <a onclick="addToCart('15')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end product item 3/2 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Lip03.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/lip03-1.jpg"
+                            title="GUCCI Rouge à Lèvres Voile Sheer Lipstick" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="lip.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Lipstick</a>
+                        <a class="product-name" href="Product-Details-Lip03.html" target="_blank"
+                            rel="noopener noreferrer">GUCCI Rouge à Lèvres Voile Sheer Lipstick</a>
+                        <p class="product-price"><span>Price: </span>฿1590</p>
+                        <div class="action">
+                            <a onclick="addToCart('16')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 3/3 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Cheek04.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/c04-1.jpg"
+                            title="MAKE UP FOR EVER Artist Face Color Highlight, Sculpt and Blush Powder" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="check.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Cheek</a>
+                        <a class="product-name" href="Product-Details-Cheek04.html" target="_blank"
+                            rel="noopener noreferrer">MAKE UP FOR EVER Artist Face Color Highlight, Sculpt and Blush
+                            Powder</a>
+                        <p class="product-price"><span>Price: </span>฿840</p>
+                        <div class="action">
+                            <a onclick="addToCart('17')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end product item 3/4-->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Eye03.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/e03-1.jpg"
+                            title="TOO FACED Born This Way The Natural Nudes Eyeshadow Palette" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="Eye.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Eye</a>
+                        <a class="product-name" href="Product-Details-Eye03.html" target="_blank"
+                            rel="noopener noreferrer">TOO FACED Born This Way The Natural Nudes Eyeshadow Palette</a>
+                        <p class="product-price"><span>Price: </span>฿1500</p>
+                        <div class="action">
+                            <a onclick="addToCart('18')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 3/5 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Lip04.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/lip04-1.jpg"
+                            title="GUCCI Rouge à Lèvres Mat Matte Lipstick" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="lip.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Lipstick</a>
+                        <a class="product-name" href="Product-Details-Lip04.html" target="_blank"
+                            rel="noopener noreferrer">GUCCI Rouge à Lèvres Mat Matte Lipstick</a>
+                        <p class="product-price"><span>Price: </span>฿1590</p>
+                        <div class="action">
+                            <a onclick="addToCart('19')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end product item 3/6 -->
+                <div class="product">
+                    <a class="product-images" href="Product-Details-Face01.html" target="_blank"
+                        rel="noopener noreferrer" title="">
+                        <img class="primary_image" src="assets/images/products/f01-1.jpg"
+                            title="BECCA COSMETICS Shimmering Skin Perfector® Pressed Highlighter" alt="" />
+                    </a>
+                    <div class="product-content">
+                        <a class="category" href="face.html" target="_blank" rel="noopener noreferrer"
+                            title="category">Face</a>
+                        <a class="product-name" href="Product-Details-Face01.html" target="_blank"
+                            rel="noopener noreferrer">BECCA COSMETICS Shimmering Skin Perfector® Pressed Highlighter</a>
+                        <p class="product-price"><span>Price: </span>฿1200</p>
+                        <div class="action">
+                            <a onclick="addToCart('20')" title="add-to-cart"><i
+                                    class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
+                    </div>
+                    <!-- End product content -->
+                </div>
+                <!-- end produt item 3/7 -->
+            </div>
+            <!-- End col-md-4 -->
+        </div>
+        <!-- End conntainer -->
+    </div>
+    <!-- End product-footer -->
+
+
+    <!-- Shopping Cart -->
+
+    <!-- End Brand Container -->
+    <div class="main-content shopping-cart">
+        <div class="shopping-cart">
+            <div class="container">
+                <div class="title-ver2">
+                    <a href="#c" class="shoppingcartbttn"><i class="fas fa-cart-plus "></i><b>shopping cart </b></a>
+                    <h3 id="c">Shopping Cart</h3>
+                </div>
+                <!-- End title product -->
+                <!-- <table class="table space-80">
+                    <thead class="cart-row">
+                        <tr>
+                            <th class="product-photo">Product</th>
+                            <th class="produc-name"></th>
+                            <th class="product-price">Price</th>
+                            <th class="product-quantity">Quantity</th>
+                            <th class="total-price">Total</th>
+                            <th class="product-remove"></th>
+                        </tr>
+                    </thead> -->
+                    <!-- <tbody id="mybody">
+                        <tr class="item_cart">
+                            <td class="product-photo"><img src="assets/images/products/1.jpg" alt="Futurelife"
+                                    height="100" width="100"></td>
+                            <td id="pdName" class="produc-name"></td><br>
+                            <td id="pdPrice" class="product-price"></td><br>
+                            <td class="product-quantity"><input type="number" size="4" class="input-text qty text"
+                                    title="SL" value="1" min="0" step="1"></td>
+                             <td class="total-price">$69.60</td> 
+                            <td id="pdTotal" class="product-price"></td>
+                            <td class="product-remove"><a onclick="deleteItem()" class="remove" title=""></a></td>
+                        </tr> -->
+
+                        <!-- <tr class="item_cart">
+                              <td class="product-photo"><img src="assets/images/products/1.jpg" alt="Futurelife" height="100" width="100"></td>
+                              <td class="produc-name"><a href="#" title="">Name product 01</a></td>
+                              <td class="product-price">$69.60</td>
+                              <td class="product-quantity"><input type="number" size="4" class="input-text qty text" title="SL" value="1" min="0" step="1"></td>
+                              <td class="total-price">$69.60</td>
+                              <td class="product-remove"><a class="remove" href="#" title=""></a></td>
+                            </tr> -->
+
+                    <!-- </tbody> -->
+                <!-- </table> -->
+                <div class="cart-items"></div>
+            </div>
+            <!-- End container -->
+        </div>
+        <!-- End shopping cart -->
+
+        <!-- <div class="shipping-total">
+            <div class="container">
+                <div class="col-md-6 coupon">
+                    <div class="title-ver2">
+                        <h3>Coupon code</h3>
+                    </div>
+                    <div class="contact-form">
+                        <form class="form-horizontal">
+                            <div class="form-group col-md-7">
+                                <input type="text" class="form-control" id="inputfname"
+                                    placeholder="Enter your first name...">
+                            </div>
+                            <div class="form-group col-md-5">
+                                <button value="Submit" class="btn link-button link-border-raidus" type="submit">Appy
+                                    coupon</button>
+                            </div>
+                        </form>
+                    </div>
+                    <a class="btn link-button link-border-raidus bg-gray" href="#" title="Continue shopping">Continue
+                        shopping</a>
+                    <a class="btn link-button link-border-raidus bg-gray" href="#" title="Update cart">Update cart</a>
+                </div>
+                <!-End col-md-6 -->
+                <!-- <div class="col-md-6 cart-totals text-price">
+                    <div class="title-ver2">
+                        <h3>Cart totals</h3>
+                    </div>
+                    <ul>
+                        <li><span class="text">Subtotal</span><span class="number">$ 1,990.00</span></li>
+                        <li><span class="text">Shipping</span><span class="number">$ 50.00</span></li>
+                        <li><span class="text totals">Totals Cart</span><span class="number totals">$ 2,040.00</span>
+                        </li>
+                        <a class="btn link-button link-border-raidus" onclick="addToDB()">Test Add Product</a>
+                    </ul>
+                    <a class="btn link-button link-border-raidus" href="checkout.html"
+                        title="Proceed to checkout">Proceed to checkout</a>
+                    <span class="ship-adress">Ship to different address</span>
+                </div> -->
+                <!-- End col-md-6 -->
+            <!-- </div>
+            End shipping-total -->
+        <!-- </div> -->
+        <!-- End conainer -->
+    </div>
+    <!-- End MainContent -->
+    <div class="main-content space-80 check-out">
+        <div class="container">
+            <!-- End checkout header -->
+            <div class="contact-form check-out space-50">
+                <div class="col-md-8 padding-left-0">
+                    <div class="title-ver3">
+                        <h3><span>B</span>illing info</h3>
+                    </div>
+                    <!-- End title-product -->
+                    <form name="form">
+                        <div class="form-group col-md-6">
+                            <label class=" control-label" for="inputfname">First Name*</label>
+                            <input type="text" name="first" class="form-control" id="inputfname">
+                            <small class="error" id="fnameErr" style="color : red"></small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class=" control-label" for="inputlname">Last Name*</label>
+                            <input type="text" name="last" class="form-control" id="inputlname">
+                            <small class="error" id="lnameErr" style="color : red"></small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class=" control-label" for="inputemail">Company Name</label>
+                            <input type="text" class="form-control" id="inputemail">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class=" control-label" for="inputcompany">Address *</label>
+                            <input type="text" name="address" class="form-control" id="inputcompany">
+                            <small class="error" id="addressErr" style="color : red"></small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class=" control-label" for="inputfname1">City *</label>
+                            <input type="text" name="city" class="form-control" id="inputfname1">
+                            <small class="error" id="cityErr" style="color : red"></small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class=" control-label" for="inputlname1">Country *</label>
+                            <input type="text" name="country" class="form-control" id="inputlname1">
+                            <small class="error" id="countryErr" style="color : red"></small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class=" control-label" for="inputemail1">Email*</label>
+                            <input type="text" name="email" class="form-control" id="inputemail1">
+                            <small class="error" id="emailErr" style="color : red"></small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class=" control-label" for="inputcompany1">Phone *</label>
+                            <input type="text" name="phone" class="form-control" id="inputcompany1">
+                            <small class="error" id="phoneErr" style="color : red"></small>
+                        </div>
+                    </form>
+                    <div class="form-group col-md-12">
+                        <button onclick="checkout()">Submit</button>
+                    </div>
+
+                </div>
+                <!-- End col-md-6 -->
+                <div class="col-md-4 padding-right-0">
+                    <div class="payment-order">
+                        <div class="title-ver3">
+                            <h3><span>y</span>our order</h3>
+                        </div>
+                        <div class="you-order">
+                            <div class="order text-price">
+                                <ul>
+                                    <li><span class="text">Subtotal</span><span id="subtotal"  class="number"></span></li>
+                                    <li><span class="text">Shipping</span><span class="number">$ 50.00</span></li>
+                                    <li><span class="text totals">Totals Cart</span><span class="number totals">$
+                                            2,040.00</span></li>
+                                </ul>
+                            </div>
+                            <div class="payment">
+                                <ul class="tabs">
+                                    <li>
+                                        <i class="icon"></i>
+                                        <h3>Direct Bank Transfer</h3>
+                                        <p>Make your payment directly info our bank account. Please use your order ID as
+                                            the
+                                            payment reference. You product won't be shipped untill payment confiimation.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="icon"></i>
+                                        <h3>Credit Card</h3>
+                                    </li>
+                                    <li>
+                                        <i class="icon"></i>
+                                        <h3>Via Paypal</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End order -->
+                    </div>
+                    <!-- End payment-order -->
+                    <!-- <a class="btn link-button link-border-raidus" href="#" title="Proceed to checkout">Proceed to checkout</a> -->
+                </div>
+                <!-- End col-md-6 -->
+            </div>
+            <!-- End contact-form -->
+        </div>
+        <!-- End conainer -->
+    </div>
+
+
+
+
+    <div class="newsletter">
+        <div class="container">
+            <h3><a href="#" title="sign up">sign up</a> to newsletter</h3>
+            <p>and receilve $20 coupon for first shopping</p>
+            <form action="#" method="get" accept-charset="utf-8">
+                <input type="text" onblur="if (this.value == '') {this.value = 'Enter your email';}"
+                    onfocus="if(this.value != '') {this.value = '';}" value="Enter your emaill"
+                    class="input-text required-entry validate-email" title="Sign up for our newsletter" id="newsletter"
+                    name="email">
+                <button class="button button1" title="Subscribe" type="submit"></button>
+            </form>
+        </div>
+        <!-- End container -->
+    </div>
+    <!-- End newsletter -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row footer-top">
+                <div class="col-md-5">
+                    <a class="logo" href="#" title="logo"><img src="assets/images/Dana-menu-logo.png" alt="Logo"></a>
+                    <p class="italic">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard.</p>
+                    <div class="infomation">
+                        <p><i class="zmdi zmdi-pin"></i>PO Box CT16122 Collins Street West, Victoria 8007, Australia.
+                        </p>
+                        <p><i class="zmdi zmdi-phone"></i>+81 (2) 345 6789</p>
+                        <p><i class="zmdi zmdi-email"></i>engotheme@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Quick link</h3>
+                    <ul class="menu">
+                        <li><a href="#" title="Home">Home</a></li>
+                        <li><a href="#" title="About us">About us</a></li>
+                        <li><a href="#" title="Blog">Blog</a></li>
+                        <li><a href="#" title="Service">Service</a></li>
+                        <li><a href="#" title="Contact us">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3>Customer care</h3>
+                    <ul class="menu">
+                        <li><a href="#" title="My account">My account</a></li>
+                        <li><a href="#" title="Order tracking">Order tracking</a></li>
+                        <li><a href="#" title="wish list">wish list</a></li>
+                        <li><a href="#" title="customer service">customer service</a></li>
+                        <li><a href="#" title="Returns/ Exchage">Returns/ Exchage</a></li>
+                        <li><a href="#" title="FAQS">FAQS</a></li>
+                        <li><a href="#" title="Product support">Product support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="col-md-8">
+                    <p>&copy; COPYRIGHT 2020 BY SEPORA</p>
+                    <a href="" title="facebook"><i class="zmdi zmdi-facebook"></i></a>
+                    <a href="#" title="google"><i class="zmdi zmdi-google-plus"></i></a>
+                    <a href="#" title="instagram"><i class="zmdi zmdi-instagram"></i></a>
+                    <a href="#" title="twitter"><i class="zmdi zmdi-twitter"></i></a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" title="Payment"><img src="assets/images/Hermes-footer-payment.png" alt="payment"></a>
+                </div>
+            </div>
+        </div>
+        <!-- End container -->
+    </footer>
+    <script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="assets/js/engo-plugins.js"></script>
+    <script type="text/javascript" src="assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="assets/js/store.js"></script>
+    <script type="text/javascript" src="assets/js/addToCart.js"></script>
+    <script type="text/javascript" src="assets/js/delete.js"></script>
+    <script type="text/javascript" src="assets/js/animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="assets/js/cart.js"></script>
+
+
+</body>
+
+</html>
