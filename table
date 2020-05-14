@@ -1,0 +1,24 @@
+var cartRowContents = `
+                 <table class="table space-80">
+                     <!--<thead>
+                         <tr>
+                             <th class="product-photo">Product</th>
+                             <th class="produc-name"></th>
+                             <th class="product-price">Price</th>
+                             <th class="product-quantity">quantity</th>
+                             <th class="total-price">Total</th>
+                             <th class="product-remove"></th>
+                         </tr>
+                     </thead>-->
+                        <tr>
+                            <td class="product-photo"><img src="${imgSrc}" alt="Futurelife"
+                                    height="100" width="100"></td>
+                            <td class="produc-name">${title}</td>
+                            <td class="product-price"><span style="text-align:left"><b>Price: </b>฿</span>${cost}</td>
+                            <td class="product-quantity"><input type="number" size="4" class="input-text qty text"
+                                    title="SL" value="1" min="0" step="1"></td>
+                            <td class="total-price"><span><b>Total: </b>฿</span>${eachtotal}</td>
+                            <td id="pdTotal" class="product-price"></td>
+                            <td class="product-remove"><a onclick="deleteItem('0')" class="remove" title=""></a></td>
+                        </tr>  
+                </table>`
