@@ -1,0 +1,33 @@
+function deleteItem(index) {
+    //if (document.readyState == 'loading') {
+    //    document.addEventListener('DOMContentLoaded', ready)
+    //} else {
+    //    ready()
+    //}
+    console.log(productsFirebase[index]) //  ดูว่า product ทั้งหมดมีไรบ้าง
+    var product = productsFirebase[index] 
+    var x = confirm("Are you sure you want to delete?"); 
+    if (x) {
+        var removeproduct = orderDocRef.update({
+            products: firebase.firestore.FieldValue.arrayRemove(product) // ]ลบ product ออกใน firestore
+        }); productsFirebase.splice(index,1); // ลบ product ออกใน array javascript ด้วย 
+        console.log(productsFirebase); // ดูว่า product ลบออกไปยัง
+        console.log("Document successfully deleted!");
+        return true;
+    }
+    else return false;
+    
+    //----------------removeItem-----------------
+    function ready() {
+        var removeCartItemButtons = document.getElementsByClassName('product-remove')
+        for (var i = 0; i < removeCartItemButtons.length; i++) {
+            var button = removeCartItemButtons[i]
+            button.addEventListener('click', removeCartItem)
+        }
+    }
+
+    function removeCartItem(event) {
+        var buttonClicked = event.target
+        buttonClicked.parentElement.parentElement.remove()
+    }
+    //----------------removeItem-----------------
