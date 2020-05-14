@@ -1,0 +1,44 @@
+//-----------------addItem-------------------
+            var imgSrc = document.getElementsByClassName("primary_image")[index].src
+            var title = name.textContent;
+            var cost = price.textContent;
+            var eachtotal = price.textContent;
+            add();
+
+            function add() {
+                var cartRow = document.createElement('div')
+                cartRow.classList.add('cart-row')
+                var cartItems = document.getElementsByClassName('cart-items')[0]
+                var cartRowContents = `
+                 <table class="table space-80">
+                     <thead class="cart-row">
+                        <tr>
+                            <th class="product-photo">Product</th>
+                            <th class="produc-name"></th>
+                            <th class="product-price">Price</th>
+                            <th class="product-quantity">Quantity</th>
+                            <th class="total-price">Total</th>
+                            <th class="product-remove"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="mybody">
+                        <tr class="item_cart">
+                            <td class="product-photo"><img src="${imgSrc}" alt="Futurelife"
+                                    height="100" width="100"></td>
+                            <td class="produc-name">${title}</td>
+                            <td class="product-price">${cost}</td>
+                            <td class="product-quantity"><input type="number" size="4" class="input-text qty text"
+                                    title="SL" value="1" min="0" step="1"></td>
+                            <td class="total-price">${eachtotal}</td>
+                            <td id="pdTotal" class="product-price"></td>
+                            <td class="product-remove"><a onclick="deleteItem('0')" class="remove" title=""></a></td>
+                        </tr>  
+                    </tbody>
+                </table>`
+                console.log(`${clicks}`)
+                cartRow.innerHTML = cartRowContents
+                cartItems.append(cartRow)
+                cartRow.getElementsByClassName('product-remove')[0].addEventListener('click', removeCartItem)
+
+            }
+            //-----------------addItem-------------------
